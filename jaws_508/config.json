@@ -1,0 +1,14 @@
+{
+	"config":{
+		"jaws_path":"C:\Program Files\Freedom Scientific\Inspect\Inspect.exe",
+		"chrome_path":"C:\chromedriver\chromedriver.exe",
+		"loop_limit":"200",
+		"include_tables":"true",
+		"order_number":"true",
+		"jira_project_id":["RXGU:10620","CDOC:11301","TRLX:11003", "FSNG:11400"],
+		"jira_instance":"jira.dssinc.com",
+		"issue_type":"10102",
+		"email_domain":"dssinc.com",
+	}
+}
+
