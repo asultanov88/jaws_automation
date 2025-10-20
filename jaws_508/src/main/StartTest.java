@@ -41,7 +41,7 @@ public class StartTest {
 
 		HelperFunctions.killJawsProcesses();
 
-		HelperFunctions.bringToFront();
+		Thread.sleep(5000);
 
 		try {
 

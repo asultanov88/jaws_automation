@@ -1105,52 +1105,6 @@ public void playSound(String path) {
 
 	}
 
-	// Generates temporary VBS file and executes it. It is used t bring the browser
-	// to the front in focus.
-	// The temporary VBS file is deleted after execution.
-	public static void bringToFront() throws IOException, InterruptedException {
-
-		File vb_file = new File(System.getProperty("java.io.tmpdir") + "\\temp_vb.vbs");
-
-		vb_file.createNewFile();
-
-		// Writing into new VB file.
-		FileWriter fw = null;
-
-		BufferedWriter bw = null;
-
-		PrintWriter pw = null;
-
-		fw = new FileWriter(vb_file.getPath(), true);
-
-		bw = new BufferedWriter(fw);
-
-		pw = new PrintWriter(bw);
-
-		pw.println(objects.VbScript.vb_script);
-
-		pw.flush();
-
-		pw.close();
-
-		bw.close();
-
-		fw.close();
-
-		String vb_path = "\"" + vb_file.getPath() + "\"";
-
-		System.out.println(vb_path);
-
-		Runtime rt = Runtime.getRuntime();
-
-		Process pr = rt.exec("wscript " + vb_path + " " + process_id);
-
-		Thread.sleep(2000);
-
-		vb_file.delete();
-
-	}
-
 	// Converts and returns passed date-time into unix time.
 	public static long getUnixTime(String format, String dateInput) throws ParseException {
 
@@ -1420,14 +1374,6 @@ public void playSound(String path) {
 			WebDriver driver = new ChromeDriver(chromeDriverService, options);
 
 			driver.navigate().to("http://www.google.com");
-
-			int port = chromeDriverService.getUrl().getPort();
-
-			int chromeDriverProcessID = HelperFunctions.getChromeDriverProcessID(port);
-
-			process_id = Integer.toString(HelperFunctions.getChromeProcesID(chromeDriverProcessID));
-
-			System.out.println("Process id: " + process_id);
 
 			return driver;
 			
